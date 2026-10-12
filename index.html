@@ -1,0 +1,27 @@
+
+<button onclick="findNearest()">🔎 ابحث عن أقرب Trial Chamber من السبون</button>
+<div id="nearestResult" class="result"></div>
+
+<script>
+function findNearest() {
+  const seed = document.getElementById("seed").value.trim();
+
+  if (!seed) {
+    const el = document.getElementById("nearestResult");
+    el.style.display = "block";
+    el.textContent = "أدخل Seed العالم أولاً.";
+    return;
+  }
+
+  const url = "https://www.mcseeder.com/seed/?from=seeds&version=26.2";
+
+  document.getElementById("nearestResult").style.display = "block";
+  document.getElementById("nearestResult").textContent =
+    "Seed العالم: " + seed +
+    "\nافتح الخريطة، أدخل الـ Seed، واختر Bedrock 26.2." +
+    "\nابحث عن Trial Chambers حول إحداثيات السبون (0, 0)." +
+    "\n\nملاحظة: هذه الخطوة تفتح الخريطة فقط؛ لا تحسب أقرب غرفة تلقائياً.";
+
+  window.open(url, "_blank");
+}
+</script>
